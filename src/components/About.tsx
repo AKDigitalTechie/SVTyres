@@ -2,7 +2,7 @@ import { motion, useInView, useScroll, useTransform } from 'framer-motion';
 import { ShieldCheck, BadgeDollarSign, Wrench, Zap, Heart, Layers } from 'lucide-react';
 import { useRef } from 'react';
 import SkeletonImage from './SkeletonImage';
-import { BUSINESS_NAME, SHOP_IMAGE } from '../constants';
+import { BUSINESS_NAME } from '../constants';
 
 const reasons = [
   { icon: ShieldCheck, title: 'Genuine Products', desc: '100% authentic tyres from authorized dealers with manufacturer warranty.' },
@@ -88,10 +88,10 @@ export default function About() {
           >
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <SkeletonImage
-                src={SHOP_IMAGE}
-                alt="SV Tyres and Services shop — Basaveshwara Nagar, Bangalore"
+                src="/Shopimage.png"
+                alt="SV Tyres and Services — shop image"
                 className="w-full h-80 lg:h-96"
-                imgClassName="w-full h-full object-cover object-center"
+                imgClassName="w-full h-full object-contain object-center"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-dark-950/50 to-transparent" />
             </div>

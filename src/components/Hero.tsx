@@ -20,7 +20,7 @@ export default function Hero() {
   const scale = useTransform(scrollYProgress, [0, 0.8], [1, 1.08]);
 
   return (
-    <section id="home" ref={ref} className="relative min-h-screen flex items-center overflow-hidden" aria-label="Hero">
+    <section id="home" ref={ref} className="relative min-h-screen flex items-start md:items-center overflow-hidden" aria-label="Hero">
       <motion.div
         style={{ y: imgY, scale }}
         className="absolute inset-0"
@@ -38,14 +38,14 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-r from-dark-950/30 via-transparent to-transparent" />
       </motion.div>
 
-      <motion.div style={{ opacity }} className="relative container-max section-padding pt-32 md:pt-40">
+      <motion.div style={{ opacity }} className="relative container-max section-padding pt-12 md:pt-40 lg:pl-96">
         <div className="max-w-4xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
           >
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-primary-500/20 border border-primary-500/30 rounded-full text-primary-400 text-sm font-medium mb-6 backdrop-blur-sm">
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-primary-500/20 border border-primary-500/30 rounded-full text-primary-400 text-sm font-medium mb-6 mt-6 md:mt-0 backdrop-blur-sm">
               <span className="w-1.5 h-1.5 rounded-full bg-primary-400 animate-pulse" />
               Trusted Tyre Shop in Bangalore
             </span>
@@ -55,7 +55,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.15, ease: 'easeOut' }}
-            className="font-extrabold text-white tracking-tight leading-[0.95] mb-2"
+            className="font-extrabold text-white tracking-tight leading-normal md:leading-[0.95] mb-2 mt-6 md:mt-0"
             style={{ fontSize: 'clamp(3rem, 8vw, 5rem)' }}
           >
             {BUSINESS_NAME}

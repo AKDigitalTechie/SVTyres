@@ -30,7 +30,7 @@ export default function LoadingScreen() {
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-dark-600">
                   <img
-                    src="/Image.jpg"
+                    src="/updatedLogo.png"
                     alt="SV Tyres"
                     className="w-full h-full object-cover object-top scale-110"
                   />

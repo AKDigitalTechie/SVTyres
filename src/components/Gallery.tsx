@@ -48,32 +48,16 @@ export default function Gallery() {
           </motion.p>
         </div>
 
-        <motion.div
-          style={{ y }}
-          className="grid grid-cols-2 md:grid-cols-3 gap-4 auto-rows-[200px] md:auto-rows-[240px]"
-        >
-          {images.map((img, i) => (
-            <motion.div
-              key={img.alt}
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={inView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 0.5, delay: i * 0.08 }}
-              className={`relative rounded-2xl overflow-hidden group cursor-default ${img.span}`}
-              role="img"
-              aria-label={img.alt}
-            >
-              <SkeletonImage
-                src={img.src}
-                alt={img.alt}
-                className="w-full h-full"
-                imgClassName="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-dark-950/0 group-hover:bg-dark-950/40 transition-colors duration-300" />
-              <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                <span className="text-white text-sm font-semibold drop-shadow-lg">{img.alt.split('–')[0].trim()}</span>
-              </div>
-            </motion.div>
-          ))}
+        <motion.div style={{ y }} className="relative">
+          <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+            <SkeletonImage
+              src="/GalleryImage.png"
+              alt="Gallery image"
+              className="w-full h-80 md:h-[420px] lg:h-[520px]"
+              imgClassName="w-full h-full object-cover object-center"
+            />
+            <div className="absolute inset-0 bg-dark-950/10" />
+          </div>
         </motion.div>
       </div>
     </section>

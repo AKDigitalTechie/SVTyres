@@ -37,7 +37,7 @@ export default function Footer() {
           <div className="sm:col-span-2 lg:col-span-1">
             <div className="flex items-center gap-2.5 mb-4">
               <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-500/40 flex-shrink-0">
-                <img src="/Image.jpg" alt="SV Tyres logo" className="w-full h-full object-cover object-top scale-110" />
+                <img src="/updatedLogo.png" alt="SV Tyres logo" className="w-full h-full object-cover object-top scale-110" />
               </div>
               <div>
                 <div className="text-base font-extrabold tracking-tight leading-tight">SV Tyres</div>

@@ -19,4 +19,4 @@ export const FULL_ADDRESS =
 export const HOURS_WEEKDAY = 'Monday – Saturday: 9:30 AM – 8:30 PM';
 export const HOURS_SUNDAY = 'Sunday: 9:30 AM – 6:00 PM';
 
-export const SHOP_IMAGE = '/Image.jpg';
+export const SHOP_IMAGE = '/BHE.png';

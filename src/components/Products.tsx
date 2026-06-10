@@ -8,19 +8,19 @@ const categories = [
     icon: Car,
     title: 'Car Tyres',
     desc: 'Premium and budget tyres for sedans, hatchbacks, and luxury cars from all top brands.',
-    image: 'https://images.pexels.com/photos/1545743/pexels-photo-1545743.jpeg?auto=compress&cs=tinysrgb&w=600',
+    image: '/cartyre.png',
   },
   {
     icon: Truck,
     title: 'SUV Tyres',
     desc: 'Rugged and reliable SUV tyres for on-road and off-road performance across terrains.',
-    image: 'https://images.pexels.com/photos/97075/pexels-photo-97075.jpeg?auto=compress&cs=tinysrgb&w=600',
+    image: '/suvimage.png',
   },
   {
     icon: Bike,
     title: 'Bike Tyres',
     desc: 'High-performance two-wheeler tyres for motorcycles and scooters with excellent grip.',
-    image: 'https://images.pexels.com/photos/5793953/pexels-photo-5793953.jpeg?auto=compress&cs=tinysrgb&w=600',
+    image: '/biketyre.png',
   },
   {
     icon: Truck,
