@@ -1,13 +1,14 @@
 import { motion, useInView, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import SkeletonImage from './SkeletonImage';
+import { SHOP_IMAGE } from '../constants';
 
 const images = [
-  { src: 'https://images.pexels.com/photos/3806288/pexels-photo-3806288.jpeg?auto=compress&cs=tinysrgb&w=600', alt: 'Shop Exterior', span: 'row-span-2' },
-  { src: 'https://images.pexels.com/photos/162556/tyre-rubber-wheel-automotive-162556.jpeg?auto=compress&cs=tinysrgb&w=600', alt: 'Tyre Display', span: '' },
-  { src: 'https://images.pexels.com/photos/5899389/pexels-photo-5899389.jpeg?auto=compress&cs=tinysrgb&w=600', alt: 'Wheel Alignment Equipment', span: '' },
-  { src: 'https://images.pexels.com/photos/3862130/pexels-photo-3862130.jpeg?auto=compress&cs=tinysrgb&w=600', alt: 'Staff', span: '' },
-  { src: 'https://images.pexels.com/photos/97075/pexels-photo-97075.jpeg?auto=compress&cs=tinysrgb&w=600', alt: 'Products', span: 'row-span-2' },
+  { src: SHOP_IMAGE, alt: 'SV Tyres and Services shop exterior – Basaveshwara Nagar Bangalore', span: 'row-span-2' },
+  { src: 'https://images.pexels.com/photos/162556/tyre-rubber-wheel-automotive-162556.jpeg?auto=compress&cs=tinysrgb&w=600', alt: 'Tyre display and stock', span: '' },
+  { src: 'https://images.pexels.com/photos/5899389/pexels-photo-5899389.jpeg?auto=compress&cs=tinysrgb&w=600', alt: 'Computerized wheel alignment equipment', span: '' },
+  { src: 'https://images.pexels.com/photos/3862130/pexels-photo-3862130.jpeg?auto=compress&cs=tinysrgb&w=600', alt: 'Expert technicians at work', span: '' },
+  { src: 'https://images.pexels.com/photos/97075/pexels-photo-97075.jpeg?auto=compress&cs=tinysrgb&w=600', alt: 'Premium tyre products', span: 'row-span-2' },
 ];
 
 export default function Gallery() {
@@ -35,7 +36,7 @@ export default function Gallery() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="section-title"
           >
-            Our Shop & Work
+            Our Shop &amp; Work
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -47,7 +48,10 @@ export default function Gallery() {
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 auto-rows-[200px] md:auto-rows-[240px]" style={{ y }}>
+        <motion.div
+          style={{ y }}
+          className="grid grid-cols-2 md:grid-cols-3 gap-4 auto-rows-[200px] md:auto-rows-[240px]"
+        >
           {images.map((img, i) => (
             <motion.div
               key={img.alt}
@@ -62,15 +66,15 @@ export default function Gallery() {
                 src={img.src}
                 alt={img.alt}
                 className="w-full h-full"
-                imgClassName="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                imgClassName="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-dark-950/0 group-hover:bg-dark-950/40 transition-colors duration-300" />
               <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                <span className="text-white text-sm font-semibold">{img.alt}</span>
+                <span className="text-white text-sm font-semibold drop-shadow-lg">{img.alt.split('–')[0].trim()}</span>
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

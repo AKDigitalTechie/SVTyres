@@ -1,6 +1,14 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Phone, MessageCircle, MapPin, ChevronDown } from 'lucide-react';
 import { useRef } from 'react';
+import {
+  PHONE_HREF,
+  WHATSAPP_HREF,
+  MAPS_HREF,
+  BUSINESS_NAME,
+  TAGLINE,
+  SHOP_IMAGE,
+} from '../constants';
 
 const brands = ['Bridgestone', 'MRF', 'Apollo', 'CEAT', 'Michelin', 'JK Tyre', 'Yokohama'];
 
@@ -9,25 +17,25 @@ export default function Hero() {
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] });
   const imgY = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
-  const scale = useTransform(scrollYProgress, [0, 0.8], [1, 1.1]);
+  const scale = useTransform(scrollYProgress, [0, 0.8], [1, 1.08]);
 
   return (
     <section id="home" ref={ref} className="relative min-h-screen flex items-center overflow-hidden" aria-label="Hero">
       <motion.div
         style={{ y: imgY, scale }}
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0"
         role="img"
-        aria-label="Tyre and car background image"
+        aria-label="SV Tyres and Services shop in Basaveshwara Nagar Bangalore"
       >
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage:
-              "url('https://images.pexels.com/photos/97075/pexels-photo-97075.jpeg?auto=compress&cs=tinysrgb&w=1920')",
-          }}
+        <img
+          src={SHOP_IMAGE}
+          alt="SV Tyres and Services shop exterior"
+          className="w-full h-full object-cover object-center"
+          style={{ filter: 'brightness(1.1) contrast(1.05)' }}
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-dark-950/90 via-dark-950/70 to-dark-950/90" />
-        <div className="absolute inset-0 bg-gradient-to-t from-dark-950/50 via-transparent to-dark-950/30" />
+        <div className="absolute inset-0 bg-gradient-to-br from-dark-950/92 via-dark-950/75 to-dark-950/88" />
+        <div className="absolute inset-0 bg-gradient-to-t from-dark-950/60 via-transparent to-dark-950/30" />
+        <div className="absolute inset-0 bg-gradient-to-r from-dark-950/30 via-transparent to-transparent" />
       </motion.div>
 
       <motion.div style={{ opacity }} className="relative container-max section-padding pt-32 md:pt-40">
@@ -37,7 +45,8 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
           >
-            <span className="inline-block px-4 py-1.5 bg-primary-500/20 border border-primary-500/30 rounded-full text-primary-400 text-sm font-medium mb-6 backdrop-blur-sm">
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-primary-500/20 border border-primary-500/30 rounded-full text-primary-400 text-sm font-medium mb-6 backdrop-blur-sm">
+              <span className="w-1.5 h-1.5 rounded-full bg-primary-400 animate-pulse" />
               Trusted Tyre Shop in Bangalore
             </span>
           </motion.div>
@@ -46,9 +55,10 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.15, ease: 'easeOut' }}
-            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold text-white tracking-tight leading-[0.95] mb-4"
+            className="font-extrabold text-white tracking-tight leading-[0.95] mb-2"
+            style={{ fontSize: 'clamp(3rem, 8vw, 5rem)' }}
           >
-            SV Tyres
+            {BUSINESS_NAME}
           </motion.h1>
 
           <motion.p
@@ -57,14 +67,14 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
             className="text-lg sm:text-xl md:text-2xl text-white/70 font-light mb-8 max-w-2xl"
           >
-            Your Trusted Tyre Shop in Rajajinagar, Bangalore
+            {TAGLINE}
           </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.45, ease: 'easeOut' }}
-            className="flex flex-wrap gap-3 mb-10"
+            className="flex flex-wrap gap-2 mb-10"
           >
             {brands.map((brand, i) => (
               <motion.span
@@ -85,26 +95,26 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.6, ease: 'easeOut' }}
             className="flex flex-wrap gap-4"
           >
-            <a href="tel:+91XXXXXXXXXX" className="btn-primary" aria-label="Call SV Tyres now">
+            <a href={PHONE_HREF} className="btn-primary" aria-label="Call SV Tyres and Services now">
               <Phone className="w-5 h-5" aria-hidden="true" />
               Call Now
             </a>
             <a
-              href="https://wa.me/91XXXXXXXXXX"
+              href={WHATSAPP_HREF}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-3 rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-green-600/25 hover:-translate-y-0.5 active:translate-y-0"
-              aria-label="WhatsApp SV Tyres"
+              aria-label="WhatsApp SV Tyres and Services"
             >
               <MessageCircle className="w-5 h-5" aria-hidden="true" />
               WhatsApp Us
             </a>
             <a
-              href="https://www.google.com/maps/dir/?api=1&destination=Rajajinagar+Bangalore"
+              href={MAPS_HREF}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-outline"
-              aria-label="Get directions to SV Tyres"
+              aria-label="Get directions to SV Tyres and Services"
             >
               <MapPin className="w-5 h-5" aria-hidden="true" />
               Get Directions

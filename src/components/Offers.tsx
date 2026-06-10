@@ -1,6 +1,7 @@
 import { motion, useInView, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import { Tag, Percent, Gift } from 'lucide-react';
+import { PHONE_HREF } from '../constants';
 
 const offers = [
   {
@@ -88,7 +89,7 @@ export default function Offers() {
           transition={{ duration: 0.6, delay: 0.5 }}
           className="text-center mt-10"
         >
-          <a href="tel:+91XXXXXXXXXX" className="btn-primary" aria-label="Call to avail offers">
+          <a href={PHONE_HREF} className="btn-primary" aria-label="Call to avail offers">
             Call to Avail Offers
           </a>
         </motion.div>

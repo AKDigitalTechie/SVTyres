@@ -1,0 +1,22 @@
+export const PHONE_DISPLAY = '+91 70261 75137';
+export const PHONE_HREF = 'tel:+917026175137';
+
+const WA_MSG = encodeURIComponent(
+  'Hello SV Tyres and Services,\n\nI would like to know about tyre availability and pricing for my vehicle.'
+);
+export const WHATSAPP_HREF = `https://wa.me/917026175137?text=${WA_MSG}`;
+
+export const MAPS_HREF = 'https://share.google/fZEnsXLtfOJYgpbDO';
+export const INSTAGRAM_HREF = 'https://www.instagram.com/svtyres_?igsh=eWt4dTRpeHYyMHRv';
+export const EMAIL = 'svtyres9@gmail.com';
+export const FACEBOOK_HREF = 'https://facebook.com/svtyres';
+
+export const BUSINESS_NAME = 'SV Tyres and Services';
+export const TAGLINE = 'Your Trusted Tyre Shop in Basaveshwara Nagar, Bangalore';
+export const SHORT_ADDRESS = 'Basaveshwara Nagar, Bengaluru – 560044';
+export const FULL_ADDRESS =
+  'No. 378, Mayagappa Complex, 8th Main Road, Mahaganapathi Nagar, 6th Phase, 1st Stage, Rajaji Nagar Industrial Town, Basaveshwara Nagar, Bengaluru, Karnataka – 560044';
+export const HOURS_WEEKDAY = 'Monday – Saturday: 9:30 AM – 8:30 PM';
+export const HOURS_SUNDAY = 'Sunday: 9:30 AM – 6:00 PM';
+
+export const SHOP_IMAGE = '/Image.jpg';

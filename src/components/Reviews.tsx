@@ -114,11 +114,11 @@ export default function Reviews() {
 
         <div className="text-center mt-10">
           <a
-            href="https://www.google.com/maps?q=SV+Tyres+Rajajinagar+Bangalore"
+            href="https://share.google/fZEnsXLtfOJYgpbDO"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-secondary"
-            aria-label="View all reviews on Google"
+            aria-label="View all reviews on Google Maps"
           >
             View All Reviews on Google
           </a>

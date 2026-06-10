@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Phone, Menu, X } from 'lucide-react';
+import { PHONE_HREF } from '../constants';
 
 const navLinks = [
   { label: 'Home', href: '#home' },
@@ -47,15 +48,26 @@ export default function Navbar() {
       >
         <div className="container-max">
           <div className="flex items-center justify-between h-16 md:h-20 px-4 sm:px-6 lg:px-8">
-            <a href="#home" className="flex items-center gap-2 group" aria-label="SV Tyres home">
-              <div className="w-9 h-9 rounded-lg bg-primary-500 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
-                <span className="text-white font-bold text-sm">SV</span>
+            <a href="#home" className="flex items-center gap-2.5 group" aria-label="SV Tyres and Services home">
+              <div className="relative w-10 h-10 rounded-full overflow-hidden border-2 border-primary-500/30 group-hover:border-primary-500 transition-colors duration-300 flex-shrink-0">
+                <img
+                  src="/Image.jpg"
+                  alt="SV Tyres and Services logo"
+                  className="w-full h-full object-cover object-top scale-110"
+                />
               </div>
-              <span className={`text-xl font-bold tracking-tight transition-colors duration-300 ${
-                scrolled ? 'text-dark-900' : 'text-white'
-              }`}>
-                SV Tyres
-              </span>
+              <div className="flex flex-col leading-none">
+                <span className={`text-base font-extrabold tracking-tight transition-colors duration-300 ${
+                  scrolled ? 'text-dark-900' : 'text-white'
+                }`}>
+                  SV Tyres
+                </span>
+                <span className={`text-[9px] font-semibold tracking-widest uppercase transition-colors duration-300 ${
+                  scrolled ? 'text-primary-500' : 'text-primary-400'
+                }`}>
+                  &amp; Services
+                </span>
+              </div>
             </a>
 
             <div className="hidden lg:flex items-center gap-1">
@@ -75,7 +87,7 @@ export default function Navbar() {
             </div>
 
             <div className="hidden lg:flex items-center gap-3">
-              <a href="tel:+91XXXXXXXXXX" className="btn-primary text-sm py-2.5 px-5" aria-label="Call SV Tyres">
+              <a href={PHONE_HREF} className="btn-primary text-sm py-2.5 px-5" aria-label="Call SV Tyres">
                 <Phone className="w-4 h-4" aria-hidden="true" />
                 Call Now
               </a>
@@ -130,7 +142,7 @@ export default function Navbar() {
                   </motion.a>
                 ))}
                 <div className="mt-4 pt-4 border-t border-dark-100">
-                  <a href="tel:+91XXXXXXXXXX" className="btn-primary w-full justify-center">
+                  <a href={PHONE_HREF} className="btn-primary w-full justify-center">
                     <Phone className="w-4 h-4" aria-hidden="true" />
                     Call Now
                   </a>

@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { Instagram, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import { INSTAGRAM_HREF } from '../constants';
 
 export default function InstagramPopup() {
   const [show, setShow] = useState(false);
@@ -43,24 +44,24 @@ export default function InstagramPopup() {
                 <Instagram className="w-5 h-5 text-white" />
               </div>
               <div>
-                <div className="font-bold text-dark-900 text-sm">SV Tyres</div>
-                <div className="text-xs text-dark-400">@svtyres</div>
+                <div className="font-bold text-dark-900 text-sm">SV Tyres and Services</div>
+                <div className="text-xs text-dark-400">@svtyres_</div>
               </div>
             </div>
 
             <p className="text-dark-600 text-sm leading-relaxed mb-4">
-              Follow us on Instagram for latest tyre offers and updates
+              Follow us on Instagram for the latest tyre offers, updates, and more!
             </p>
 
             <a
-              href="https://instagram.com/svtyres"
+              href={INSTAGRAM_HREF}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white text-sm font-semibold px-4 py-2 rounded-full hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2"
               aria-label="Follow SV Tyres on Instagram"
             >
               <Instagram className="w-4 h-4" aria-hidden="true" />
-              Follow Us
+              Follow @svtyres_
             </a>
           </div>
         </motion.div>

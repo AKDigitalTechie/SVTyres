@@ -1,26 +1,27 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { MessageCircle, Phone, Instagram } from 'lucide-react';
 import { useState } from 'react';
+import { PHONE_HREF, WHATSAPP_HREF, INSTAGRAM_HREF } from '../constants';
 
 const buttons = [
   {
     icon: MessageCircle,
     label: 'Chat with us',
-    href: 'https://wa.me/91XXXXXXXXXX',
+    href: WHATSAPP_HREF,
     bg: 'bg-green-500 hover:bg-green-600',
     shadow: 'shadow-green-500/30',
   },
   {
     icon: Phone,
     label: 'Call Now',
-    href: 'tel:+91XXXXXXXXXX',
+    href: PHONE_HREF,
     bg: 'bg-primary-500 hover:bg-primary-600',
     shadow: 'shadow-primary-500/30',
   },
   {
     icon: Instagram,
     label: 'Follow us',
-    href: 'https://instagram.com/svtyres',
+    href: INSTAGRAM_HREF,
     bg: 'bg-gradient-to-br from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600',
     shadow: 'shadow-purple-500/30',
   },

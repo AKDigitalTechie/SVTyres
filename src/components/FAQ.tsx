@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import { ChevronDown, HelpCircle } from 'lucide-react';
+import { PHONE_HREF } from '../constants';
 
 const faqs = [
   {
@@ -17,11 +18,11 @@ const faqs = [
   },
   {
     q: 'What are your working hours?',
-    a: 'We are open Monday to Sunday from 9 AM to 8 PM. You can visit us or call ahead to schedule an appointment for faster service.',
+    a: 'We are open Monday to Saturday from 9:30 AM to 8:30 PM, and Sunday from 9:30 AM to 6:00 PM. You can visit us or call ahead for faster service.',
   },
   {
     q: 'Do you offer home service or mobile tyre fitting?',
-    a: 'Currently, we provide all services at our shop in Rajajinagar. Call us to check availability for specific mobile service requests in the nearby area.',
+    a: 'Currently, we provide all services at our shop in Basaveshwara Nagar, Bengaluru. Call us to check availability for specific mobile service requests in the nearby area.',
   },
   {
     q: 'How often should I get wheel alignment done?',
@@ -139,7 +140,7 @@ export default function FAQ() {
             <HelpCircle className="w-8 h-8 text-primary-500 mx-auto mb-3" aria-hidden="true" />
             <h3 className="text-lg font-bold text-dark-900 mb-2">Still have questions?</h3>
             <p className="text-dark-500 text-sm mb-4">Our team is happy to help with any tyre-related queries.</p>
-            <a href="tel:+91XXXXXXXXXX" className="btn-primary text-sm">
+            <a href={PHONE_HREF} className="btn-primary text-sm">
               Call Us Now
             </a>
           </motion.div>
