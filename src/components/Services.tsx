@@ -40,7 +40,7 @@ export default function Services() {
   const inView = useInView(ref, { once: true, margin: '-80px' });
 
   return (
-    <section id="services" className="section-padding bg-white">
+    <section id="services" className="section-padding bg-white" aria-labelledby="services-heading">
       <div className="container-max" ref={ref}>
         <div className="text-center mb-12">
           <motion.span
@@ -52,6 +52,7 @@ export default function Services() {
             Our Services
           </motion.span>
           <motion.h2
+            id="services-heading"
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.1 }}
@@ -76,12 +77,18 @@ export default function Services() {
               initial={{ opacity: 0, y: 25 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.08 }}
+              whileHover={{ y: -6, transition: { duration: 0.2 } }}
               className="card p-7 group relative overflow-hidden"
+              role="article"
+              aria-label={service.title}
             >
               <div className="absolute top-0 right-0 w-32 h-32 bg-primary-500/5 rounded-full -translate-y-1/2 translate-x-1/2 group-hover:bg-primary-500/10 transition-colors duration-500" />
+              <motion.div
+                className="absolute bottom-0 left-0 w-24 h-24 bg-primary-500/0 group-hover:bg-primary-500/5 rounded-full translate-y-1/2 -translate-x-1/2 transition-colors duration-500"
+              />
               <div className="relative">
                 <div className="w-14 h-14 bg-primary-50 group-hover:bg-primary-500 rounded-2xl flex items-center justify-center mb-5 transition-all duration-300">
-                  <service.icon className="w-7 h-7 text-primary-500 group-hover:text-white transition-colors duration-300" />
+                  <service.icon className="w-7 h-7 text-primary-500 group-hover:text-white transition-colors duration-300" aria-hidden="true" />
                 </div>
                 <h3 className="text-xl font-bold text-dark-900 mb-3">{service.title}</h3>
                 <p className="text-dark-500 leading-relaxed text-sm">{service.desc}</p>

@@ -1,7 +1,7 @@
-import { motion } from 'framer-motion';
+import { motion, useInView, useScroll, useTransform } from 'framer-motion';
 import { ShieldCheck, BadgeDollarSign, Wrench, Zap, Heart, Layers } from 'lucide-react';
 import { useRef } from 'react';
-import { useInView } from 'framer-motion';
+import SkeletonImage from './SkeletonImage';
 
 const reasons = [
   { icon: ShieldCheck, title: 'Genuine Products', desc: '100% authentic tyres from authorized dealers with manufacturer warranty.' },
@@ -30,9 +30,11 @@ function AnimatedCard({ children, delay }: { children: React.ReactNode; delay: n
 export default function About() {
   const sectionRef = useRef(null);
   const inView = useInView(sectionRef, { once: true, margin: '-100px' });
+  const { scrollYProgress } = useScroll({ target: sectionRef, offset: ['start end', 'end start'] });
+  const imgY = useTransform(scrollYProgress, [0, 1], [40, -40]);
 
   return (
-    <section id="about" className="section-padding bg-white">
+    <section id="about" className="section-padding bg-white" aria-labelledby="about-heading">
       <div className="container-max">
         <div ref={sectionRef} className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-20">
           <div>
@@ -45,6 +47,7 @@ export default function About() {
               About Us
             </motion.span>
             <motion.h2
+              id="about-heading"
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.1 }}
@@ -78,14 +81,15 @@ export default function About() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={inView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.7, delay: 0.2 }}
+            style={{ y: imgY }}
             className="relative"
           >
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-              <img
+              <SkeletonImage
                 src="https://images.pexels.com/photos/3806288/pexels-photo-3806288.jpeg?auto=compress&cs=tinysrgb&w=800"
-                alt="SV Tyres workshop"
-                loading="lazy"
-                className="w-full h-80 lg:h-96 object-cover"
+                alt="SV Tyres workshop interior"
+                className="w-full h-80 lg:h-96"
+                imgClassName="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-dark-950/40 to-transparent" />
             </div>

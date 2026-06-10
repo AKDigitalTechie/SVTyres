@@ -13,17 +13,19 @@ const socials = [
   { icon: Instagram, href: 'https://instagram.com/svtyres', label: 'Instagram' },
   { icon: Facebook, href: 'https://facebook.com/svtyres', label: 'Facebook' },
   { icon: MessageCircle, href: 'https://wa.me/91XXXXXXXXXX', label: 'WhatsApp' },
-  { icon: MapPin, href: 'https://maps.google.com/?q=Rajajinagar+Bangalore', label: 'Google Maps' },
+  { icon: MapPin, href: 'https://www.google.com/maps/dir/?api=1&destination=Rajajinagar+Bangalore+Karnataka', label: 'Google Maps' },
 ];
+
+const services = ['Tyre Replacement', 'Wheel Alignment', 'Wheel Balancing', 'Nitrogen Filling', 'Puncture Repair', 'Alloy Wheels'];
 
 export default function Footer() {
   return (
-    <footer className="bg-dark-900 text-white">
+    <footer className="bg-dark-900 text-white" role="contentinfo">
       <div className="container-max section-padding pb-8">
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
           <div className="sm:col-span-2 lg:col-span-1">
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-9 h-9 rounded-lg bg-primary-500 flex items-center justify-center">
+              <div className="w-9 h-9 rounded-lg bg-primary-500 flex items-center justify-center" aria-hidden="true">
                 <span className="text-white font-bold text-sm">SV</span>
               </div>
               <span className="text-xl font-bold tracking-tight">SV Tyres</span>
@@ -32,17 +34,17 @@ export default function Footer() {
               Your trusted tyre shop in Rajajinagar, Bangalore. Quality tyres, expert service, and competitive prices since day one.
             </p>
             <div className="flex items-center gap-2 text-white/50 text-sm">
-              <MapPin className="w-4 h-4" />
+              <MapPin className="w-4 h-4" aria-hidden="true" />
               <span>Rajajinagar, Bangalore</span>
             </div>
           </div>
 
           <div>
             <h3 className="font-bold text-sm uppercase tracking-wider mb-4 text-white/80">Quick Links</h3>
-            <ul className="space-y-2.5">
+            <ul className="space-y-2.5" role="list">
               {quickLinks.map((link) => (
                 <li key={link.href}>
-                  <a href={link.href} className="text-white/50 hover:text-primary-400 text-sm transition-colors duration-200">
+                  <a href={link.href} className="text-white/50 hover:text-primary-400 text-sm transition-colors duration-200 focus:outline-none focus-visible:text-primary-400">
                     {link.label}
                   </a>
                 </li>
@@ -52,10 +54,10 @@ export default function Footer() {
 
           <div>
             <h3 className="font-bold text-sm uppercase tracking-wider mb-4 text-white/80">Services</h3>
-            <ul className="space-y-2.5">
-              {['Tyre Replacement', 'Wheel Alignment', 'Wheel Balancing', 'Nitrogen Filling', 'Puncture Repair', 'Alloy Wheels'].map((s) => (
+            <ul className="space-y-2.5" role="list">
+              {services.map((s) => (
                 <li key={s}>
-                  <a href="#services" className="text-white/50 hover:text-primary-400 text-sm transition-colors duration-200">
+                  <a href="#services" className="text-white/50 hover:text-primary-400 text-sm transition-colors duration-200 focus:outline-none focus-visible:text-primary-400">
                     {s}
                   </a>
                 </li>
@@ -73,15 +75,15 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={s.label}
-                  className="w-10 h-10 bg-white/5 hover:bg-primary-500 rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110"
+                  className="w-10 h-10 bg-white/5 hover:bg-primary-500 rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500"
                 >
-                  <s.icon className="w-4 h-4" />
+                  <s.icon className="w-4 h-4" aria-hidden="true" />
                 </a>
               ))}
             </div>
             <div className="space-y-2 text-white/50 text-sm">
-              <a href="tel:+91XXXXXXXXXX" className="block hover:text-primary-400 transition-colors">+91 XXXXXXXXXX</a>
-              <a href="mailto:contact@svtyresbangalore.com" className="block hover:text-primary-400 transition-colors">contact@svtyresbangalore.com</a>
+              <a href="tel:+91XXXXXXXXXX" className="block hover:text-primary-400 transition-colors focus:outline-none focus-visible:text-primary-400">+91 XXXXXXXXXX</a>
+              <a href="mailto:contact@svtyresbangalore.com" className="block hover:text-primary-400 transition-colors focus:outline-none focus-visible:text-primary-400">contact@svtyresbangalore.com</a>
             </div>
           </div>
         </div>

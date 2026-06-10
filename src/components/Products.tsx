@@ -1,6 +1,7 @@
-import { motion, useInView } from 'framer-motion';
+import { motion, useInView, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import { Car, Truck, Bike } from 'lucide-react';
+import SkeletonImage from './SkeletonImage';
 
 const categories = [
   {
@@ -32,9 +33,11 @@ const categories = [
 export default function Products() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-80px' });
+  const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] });
+  const y = useTransform(scrollYProgress, [0, 1], [30, -30]);
 
   return (
-    <section className="section-padding bg-dark-50">
+    <section id="products" className="section-padding bg-dark-50" aria-labelledby="products-heading">
       <div className="container-max" ref={ref}>
         <div className="text-center mb-12">
           <motion.span
@@ -46,6 +49,7 @@ export default function Products() {
             Product Range
           </motion.span>
           <motion.h2
+            id="products-heading"
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.1 }}
@@ -70,19 +74,22 @@ export default function Products() {
               initial={{ opacity: 0, y: 25 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="group relative rounded-2xl overflow-hidden shadow-sm border border-dark-100/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 cursor-default"
+              style={{ y }}
+              className="group relative rounded-2xl overflow-hidden shadow-sm border border-dark-100/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-2 cursor-default"
+              role="article"
+              aria-label={cat.title}
             >
               <div className="relative h-48 overflow-hidden">
-                <img
+                <SkeletonImage
                   src={cat.image}
                   alt={cat.title}
-                  loading="lazy"
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="w-full h-full"
+                  imgClassName="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-dark-950/80 via-dark-950/20 to-transparent" />
                 <div className="absolute bottom-4 left-4">
                   <div className="w-10 h-10 bg-primary-500 rounded-xl flex items-center justify-center shadow-lg">
-                    <cat.icon className="w-5 h-5 text-white" />
+                    <cat.icon className="w-5 h-5 text-white" aria-hidden="true" />
                   </div>
                 </div>
               </div>

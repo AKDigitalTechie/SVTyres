@@ -37,11 +37,12 @@ const reviews = [
 
 function Stars({ count }: { count: number }) {
   return (
-    <div className="flex gap-0.5">
+    <div className="flex gap-0.5" role="img" aria-label={`${count} out of 5 stars`}>
       {Array.from({ length: 5 }).map((_, i) => (
         <Star
           key={i}
           className={`w-4 h-4 ${i < count ? 'text-yellow-400 fill-yellow-400' : 'text-dark-200'}`}
+          aria-hidden="true"
         />
       ))}
     </div>
@@ -53,7 +54,7 @@ export default function Reviews() {
   const inView = useInView(ref, { once: true, margin: '-80px' });
 
   return (
-    <section id="reviews" className="section-padding bg-dark-50">
+    <section id="reviews" className="section-padding bg-dark-50" aria-labelledby="reviews-heading">
       <div className="container-max" ref={ref}>
         <div className="text-center mb-12">
           <motion.span
@@ -65,6 +66,7 @@ export default function Reviews() {
             Reviews
           </motion.span>
           <motion.h2
+            id="reviews-heading"
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.1 }}
@@ -89,13 +91,16 @@ export default function Reviews() {
               initial={{ opacity: 0, y: 25 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.08 }}
+              whileHover={{ y: -4, transition: { duration: 0.2 } }}
               className="card p-6 relative"
+              role="article"
+              aria-label={`Review by ${review.name}`}
             >
-              <Quote className="absolute top-4 right-4 w-8 h-8 text-primary-100" />
+              <Quote className="absolute top-4 right-4 w-8 h-8 text-primary-100" aria-hidden="true" />
               <Stars count={review.rating} />
               <p className="text-dark-600 leading-relaxed mt-4 mb-5 text-sm">{review.text}</p>
               <div className="flex items-center gap-3 pt-4 border-t border-dark-100">
-                <div className="w-10 h-10 rounded-full bg-primary-500 flex items-center justify-center text-white font-bold text-sm">
+                <div className="w-10 h-10 rounded-full bg-primary-500 flex items-center justify-center text-white font-bold text-sm" aria-hidden="true">
                   {review.name.charAt(0)}
                 </div>
                 <div>
@@ -113,6 +118,7 @@ export default function Reviews() {
             target="_blank"
             rel="noopener noreferrer"
             className="btn-secondary"
+            aria-label="View all reviews on Google"
           >
             View All Reviews on Google
           </a>

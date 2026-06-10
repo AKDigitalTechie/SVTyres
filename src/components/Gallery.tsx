@@ -1,5 +1,6 @@
-import { motion, useInView } from 'framer-motion';
+import { motion, useInView, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
+import SkeletonImage from './SkeletonImage';
 
 const images = [
   { src: 'https://images.pexels.com/photos/3806288/pexels-photo-3806288.jpeg?auto=compress&cs=tinysrgb&w=600', alt: 'Shop Exterior', span: 'row-span-2' },
@@ -12,9 +13,11 @@ const images = [
 export default function Gallery() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-80px' });
+  const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] });
+  const y = useTransform(scrollYProgress, [0, 1], [20, -20]);
 
   return (
-    <section id="gallery" className="section-padding bg-white">
+    <section id="gallery" className="section-padding bg-white" aria-labelledby="gallery-heading">
       <div className="container-max" ref={ref}>
         <div className="text-center mb-12">
           <motion.span
@@ -26,6 +29,7 @@ export default function Gallery() {
             Gallery
           </motion.span>
           <motion.h2
+            id="gallery-heading"
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.1 }}
@@ -43,7 +47,7 @@ export default function Gallery() {
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 auto-rows-[200px] md:auto-rows-[240px]">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 auto-rows-[200px] md:auto-rows-[240px]" style={{ y }}>
           {images.map((img, i) => (
             <motion.div
               key={img.alt}
@@ -51,12 +55,14 @@ export default function Gallery() {
               animate={inView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 0.5, delay: i * 0.08 }}
               className={`relative rounded-2xl overflow-hidden group cursor-default ${img.span}`}
+              role="img"
+              aria-label={img.alt}
             >
-              <img
+              <SkeletonImage
                 src={img.src}
                 alt={img.alt}
-                loading="lazy"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                className="w-full h-full"
+                imgClassName="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-dark-950/0 group-hover:bg-dark-950/40 transition-colors duration-300" />
               <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">

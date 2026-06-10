@@ -17,7 +17,7 @@ export default function Brands() {
   const inView = useInView(ref, { once: true, margin: '-80px' });
 
   return (
-    <section id="brands" className="section-padding bg-dark-50">
+    <section id="brands" className="section-padding bg-dark-50" aria-labelledby="brands-heading">
       <div className="container-max" ref={ref}>
         <div className="text-center mb-12">
           <motion.span
@@ -29,6 +29,7 @@ export default function Brands() {
             Top Brands
           </motion.span>
           <motion.h2
+            id="brands-heading"
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.1 }}
@@ -53,7 +54,10 @@ export default function Brands() {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.07 }}
-              className="bg-white rounded-2xl p-6 md:p-8 flex flex-col items-center justify-center gap-3 shadow-sm border border-dark-100/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group cursor-default"
+              whileHover={{ y: -6, transition: { duration: 0.2 } }}
+              className="bg-white rounded-2xl p-6 md:p-8 flex flex-col items-center justify-center gap-3 shadow-sm border border-dark-100/50 transition-all duration-300 hover:shadow-xl group cursor-default"
+              role="article"
+              aria-label={`${brand.name} tyres`}
             >
               <div
                 className="w-16 h-16 rounded-2xl flex items-center justify-center transition-transform duration-300 group-hover:scale-110"
@@ -62,6 +66,7 @@ export default function Brands() {
                 <span
                   className="text-xl md:text-2xl font-extrabold tracking-tight"
                   style={{ color: brand.color }}
+                  aria-hidden="true"
                 >
                   {brand.name.charAt(0)}
                 </span>
