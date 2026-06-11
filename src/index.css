@@ -65,6 +65,8 @@
   }
 }
 
+/* (removed unused hero oval CSS) */
+
 @keyframes shimmer {
   0% {
     transform: translateX(-100%);

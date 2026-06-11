@@ -1,5 +1,5 @@
 import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 import { Phone, MessageCircle, Mail, MapPin, Clock, Navigation } from 'lucide-react';
 import {
   PHONE_DISPLAY,
@@ -7,6 +7,7 @@ import {
   WHATSAPP_HREF,
   EMAIL,
   MAPS_HREF,
+  MAPS_APP_SHORT,
   FULL_ADDRESS,
   HOURS_WEEKDAY,
   HOURS_SUNDAY,
@@ -23,6 +24,34 @@ const contactInfo = [
 export default function Contact() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-80px' });
+
+  // Replace the existing Get Directions link href with the precise maps.app short link
+  useEffect(() => {
+    try {
+      const selector = 'a[aria-label="Get directions to SV Tyres and Services on Google Maps"]';
+      const anchors = document.querySelectorAll<HTMLAnchorElement>(selector);
+      anchors.forEach((a) => {
+        a.href = MAPS_APP_SHORT;
+      });
+    } catch (e) {
+      // no-op in environments without DOM
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!ref.current) return;
+    try {
+      const container = ref.current as HTMLElement;
+      const addressAnchor = container.querySelector('a[aria-label^="Address:"]') as HTMLAnchorElement | null;
+      if (addressAnchor) addressAnchor.href = MAPS_APP_SHORT;
+      const getDirectionsAnchor = container.querySelector(
+        'a[aria-label="Get directions to SV Tyres and Services on Google Maps"]'
+      ) as HTMLAnchorElement | null;
+      if (getDirectionsAnchor) getDirectionsAnchor.href = MAPS_APP_SHORT;
+    } catch (e) {
+      // noop
+    }
+  }, [ref]);
 
   return (
     <section id="contact" className="section-padding bg-dark-50" aria-labelledby="contact-heading">
@@ -92,22 +121,38 @@ export default function Contact() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="relative rounded-2xl overflow-hidden shadow-lg border border-dark-100/50 h-full min-h-[360px] group"
           >
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.5!2d77.5313!3d12.9974!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae3da64b3c8f7b%3A0x0!2zQmFzYXZlc2h3YXJhIE5hZ2FyLCBCZW5nYWx1cnU!5e0!3m2!1sen!2sin!4v1234567890"
-              width="100%"
-              height="100%"
-              style={{ border: 0, minHeight: 400 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="SV Tyres and Services Location – Basaveshwara Nagar, Bengaluru"
-            />
+            <div className="w-full h-full min-h-[360px]">
+              <iframe
+                className="w-full h-full min-h-[360px] relative z-0 pointer-events-none md:pointer-events-auto"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.5!2d77.5313!3d12.9974!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae3da64b3c8f7b%3A0x0!2zQmFzYXZlc2h3YXJhIE5hZ2FyLCBCZW5nYWx1cnU!5e0!3m2!1sen!2sin!4v1234567890"
+                width="100%"
+                height="100%"
+                style={{ border: 0, minHeight: 400 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="SV Tyres and Services Location – Basaveshwara Nagar, Bengaluru"
+              />
+            </div>
+            {/* Mobile-only Get Directions button (replaces iframe on small screens) */}
+            <div className="md:hidden absolute inset-0 flex items-center justify-center z-20">
+              <a
+                href={MAPS_APP_SHORT}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Open SV Tyres and Services in Google Maps"
+                className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white text-base font-semibold px-6 py-3 rounded-full shadow-md transition-all duration-200"
+              >
+                <Navigation className="w-4 h-4" aria-hidden="true" />
+                Get Directions
+              </a>
+            </div>
             <a
               href={MAPS_HREF}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Get directions to SV Tyres and Services on Google Maps"
-              className="absolute bottom-4 right-4 inline-flex items-center gap-2 bg-primary-500 hover:bg-primary-600 text-white text-sm font-semibold px-5 py-2.5 rounded-full shadow-lg shadow-primary-500/25 transition-all duration-300 hover:scale-105 hover:shadow-xl opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0"
+              className="hidden md:inline-flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center gap-2 bg-primary-500 hover:bg-primary-600 text-white text-sm font-semibold px-5 py-2.5 rounded-full shadow-lg shadow-primary-500/25 transition-all duration-300 hover:scale-105 hover:shadow-xl z-50"
             >
               <Navigation className="w-4 h-4" aria-hidden="true" />
               Get Directions
