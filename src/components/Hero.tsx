@@ -10,7 +10,7 @@ import {
   SHOP_IMAGE,
 } from '../constants';
 
-const brands = ['Bridgestone', 'MRF', 'Apollo', 'CEAT', 'Michelin', 'JK Tyre', 'Yokohama'];
+const brands = ['Bridgestone', 'MRF', 'Apollo', 'CEAT', 'Michelin', 'JK Tyre', 'Yokohama', 'Pirelli', 'Metzeler'];
 
 const brandColorClasses: { [key: string]: string } = {
   Bridgestone: 'bg-red-600 hover:bg-red-700 text-white',
@@ -20,6 +20,8 @@ const brandColorClasses: { [key: string]: string } = {
   Michelin: 'bg-sky-600 hover:bg-sky-700 text-white',
   'JK Tyre': 'bg-orange-600 hover:bg-orange-700 text-white',
   Yokohama: 'bg-indigo-600 hover:bg-indigo-700 text-white',
+  Pirelli: 'bg-red-700 hover:bg-red-800 text-white',
+  Metzeler: 'bg-blue-700 hover:bg-blue-800 text-white',
 };
 
 export default function Hero() {

@@ -6,8 +6,8 @@ import { PHONE_HREF } from '../constants';
 const offers = [
   {
     icon: Percent,
-    title: 'Flat 10% Off',
-    desc: 'On all MRF and Apollo tyres for cars and SUVs this month.',
+    title: '16% Offer On Premium Segmented Tyres',
+    desc: 'Up to 16% discount on selected premium segmented tyres. Visit the store for offer details.',
     badge: 'Limited Time',
   },
   {
@@ -21,6 +21,24 @@ const offers = [
     title: 'Monsoon Offer',
     desc: 'Special discount on wet-grip tyres and nitrogen filling combo this season.',
     badge: 'Seasonal',
+  },
+  {
+    icon: Tag,
+    title: 'Premium Super Bike Tyres Available',
+    desc: 'Tyres available for superbikes from Pirelli, Metzeler, Vredestein and Michelin.',
+    badge: 'Super Bikes',
+  },
+  {
+    icon: Tag,
+    title: 'Premium Tyres Available',
+    desc: 'Explore premium tyre brands including Michelin, Pirelli, Metzeler and Vredestein for luxury cars, performance vehicles and superbikes.',
+    badge: 'Premium Brands',
+  },
+  {
+    icon: Tag,
+    title: 'Tyres for Every Vehicle',
+    desc: 'We stock tyres for cars, SUVs, hatchbacks, sedans, commercial vehicles and superbikes from leading global and Indian brands.',
+    badge: 'Wide Range',
   },
 ];
 
@@ -57,7 +75,7 @@ export default function Offers() {
           </motion.h2>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {offers.map((offer, i) => (
             <motion.div
               key={offer.title}

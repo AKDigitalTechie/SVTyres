@@ -6,7 +6,7 @@ import { PHONE_HREF } from '../constants';
 const faqs = [
   {
     q: 'Which tyre brands are available?',
-    a: 'We stock genuine tyres from MRF, Apollo, Bridgestone, CEAT, Michelin, JK Tyre, Yokohama, and Goodyear. All products come with manufacturer warranty.',
+    a: 'We stock genuine tyres from MRF, Apollo, Bridgestone, CEAT, Michelin, JK Tyre, Yokohama, Goodyear, Pirelli, and Metzeler. All products come with manufacturer warranty.',
   },
   {
     q: 'Do you provide wheel alignment?',

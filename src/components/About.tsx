@@ -88,7 +88,7 @@ export default function About() {
           >
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <SkeletonImage
-                src="/Shopimage.png"
+                src="/twoshutter.png"
                 alt="SV Tyres and Services — shop image"
                 className="w-full h-80 lg:h-96"
                 imgClassName="w-full h-full object-contain object-center"

@@ -74,6 +74,24 @@ const brands = [
     abbrColor: '#f7a800',
     bg: '#003087',
   },
+  {
+    name: 'Pirelli',
+    tagline: 'Powering Performance',
+    primary: '#c60000',
+    secondary: '#ffffff',
+    abbr: 'P',
+    abbrColor: '#ffffff',
+    bg: '#c60000',
+  },
+  {
+    name: 'Metzeler',
+    tagline: 'Driven by the Spirit',
+    primary: '#004c8b',
+    secondary: '#ffffff',
+    abbr: 'MZ',
+    abbrColor: '#ffffff',
+    bg: '#004c8b',
+  },
 ];
 
 export default function Brands() {
