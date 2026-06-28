@@ -6,8 +6,8 @@ import { PHONE_HREF } from '../constants';
 const offers = [
   {
     icon: Percent,
-    title: '16% Offer On Premium Segmented Tyres',
-    desc: 'Up to 16% discount on selected premium segmented tyres. Visit the store for offer details.',
+    title: '16% Offer On Premium Segment Tyres',
+    desc: 'Up to 16% discount on selected premium segment tyres. Visit the store for offer details.',
     badge: 'Limited Time',
   },
   {
