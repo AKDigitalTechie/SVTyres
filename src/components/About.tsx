@@ -6,7 +6,7 @@ import { BUSINESS_NAME } from '../constants';
 
 const reasons = [
   { icon: ShieldCheck, title: 'Genuine Products', desc: '100% authentic tyres from authorized dealers with manufacturer warranty.' },
-  { icon: BadgeDollarSign, title: 'Affordable Pricing', desc: 'Competitive prices with regular offers and the best value in Bangalore.' },
+  { icon: BadgeDollarSign, title: 'Reasonable Pricing', desc: 'Competitive prices with regular offers and the best value in Bangalore.' },
   { icon: Wrench, title: 'Expert Technicians', desc: 'Skilled professionals with years of experience in tyre fitting and services.' },
   { icon: Zap, title: 'Fast Service', desc: 'Quick turnaround times so you can get back on the road sooner.' },
   { icon: Heart, title: 'Trusted by Customers', desc: 'Hundreds of satisfied customers across Basaveshwara Nagar and Bangalore.' },

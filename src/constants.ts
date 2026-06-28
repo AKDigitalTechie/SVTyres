@@ -2,7 +2,7 @@ export const PHONE_DISPLAY = '+91 70261 75137';
 export const PHONE_HREF = 'tel:+917026175137';
 
 const WA_MSG = encodeURIComponent(
-  'Hello SV Tyres and Services,\n\nI would like to know about tyre availability and pricing for my vehicle.'
+  'Hello SV Tyres and Services,\n\nI would like to know about tyre availability for my vehicle.'
 );
 export const WHATSAPP_HREF = `https://wa.me/917026175137?text=${WA_MSG}`;
 
