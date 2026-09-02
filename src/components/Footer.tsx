@@ -20,7 +20,7 @@ const quickLinks = [
   { label: 'Contact', href: '#contact' },
 ];
 
-const serviceLinks = ['Tyre Replacement', 'Wheel Alignment', 'Wheel Balancing', 'Nitrogen Filling', 'Puncture Repair', 'Battery Replacement'];
+const serviceLinks = ['Tyre Replacement', 'Wheel Alignment', 'Wheel Balancing', 'Nitrogen Filling', 'Puncture Repair only for walk-ins'];
 
 const socials = [
   { icon: Instagram, href: INSTAGRAM_HREF, label: 'Instagram @svtyres_' },

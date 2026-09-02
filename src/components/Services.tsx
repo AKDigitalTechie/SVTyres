@@ -25,23 +25,13 @@ const services = [
   },
   {
     icon: Construction,
-    title: 'Puncture Repair',
+    title: 'Puncture Repair ( only for walk-ins )',
     desc: 'Quick and reliable puncture repair using industry-standard patch and plug methods.',
   },
   {
     icon: Disc3,
     title: 'Alloy Wheel Services',
     desc: 'Alloy wheel fitting, balancing, and repair services to keep your wheels looking great.',
-  },
-  {
-    icon: Battery,
-    title: 'Battery Replacement',
-    desc: 'Genuine car battery testing and replacement with top brands for reliable starting power.',
-  },
-  {
-    icon: Droplets,
-    title: 'Oil Change',
-    desc: 'Engine oil and filter replacement service using quality oils for optimal engine performance.',
   },
 ];
 
@@ -76,7 +66,7 @@ export default function Services() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="section-subtitle mx-auto mt-4"
           >
-            From tyre replacement to battery service — all your vehicle needs under one roof.
+            Tyre replacement — all your vehicle needs under one roof.
           </motion.p>
         </div>
 

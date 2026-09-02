@@ -12,7 +12,7 @@ const offers = [
   },
   {
     icon: Tag,
-    title: 'Free Wheel Balancing',
+    title: 'Free Wheel Balancing & Alignment',
     desc: 'Get complimentary wheel balancing with every set of 4 tyres purchased.',
     badge: 'Popular',
   },

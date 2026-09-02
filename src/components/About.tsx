@@ -54,7 +54,7 @@ export default function About() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="section-title mb-6"
             >
-              Trusted Tyre Retailer in Bangalore
+              Trusted Tyre Retailer & Wholesaler in Bangalore
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -62,7 +62,7 @@ export default function About() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-dark-500 text-lg leading-relaxed mb-6"
             >
-              {BUSINESS_NAME} is a trusted tyre retailer providing quality products and professional
+              {BUSINESS_NAME} is a trusted tyre retailer & wholesaler providing quality products and professional
               service in Basaveshwara Nagar, Bangalore. Located in the Rajaji Nagar Industrial Town,
               we have earned a reputation for offering genuine tyres from top brands at competitive prices.
             </motion.p>
@@ -74,7 +74,7 @@ export default function About() {
             >
               Whether you need tyres for your car, SUV, bike, or commercial vehicle, our expert team
               ensures you get the right fit with professional installation. From wheel alignment and
-              nitrogen filling to battery replacement and oil change — we offer a complete range of
+              nitrogen filling to puncture repair ( only for walk-ins ) — we offer a complete range of
               automotive services under one roof.
             </motion.p>
           </div>
